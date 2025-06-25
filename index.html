@@ -8,22 +8,93 @@
   <link href="./dist/style.css" rel="stylesheet" />
 </head>
 
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-
-  <header class="bg-blue-600 text-white p-4 shadow-md flex items-center justify-between">
-    <h1 class="text-3xl font-bold">Track and field CLUB</h1>
-    <div>
-      <button class="bg-white text-blue-600 font-semibold py-2 px-4 rounded hover:bg-gray-100">
-      お問い合わせ
-    </button>
-    <button class="bg-white text-blue-600 font-semibold py-2 px-4 rounded hover:bg-gray-100">
-      お問い合わせ
-    </button>
-    </div>
+<body class="bg-[#FAF9F6] font-sans leading-normal tracking-normal">
+  <!-- ヘッダー -->
+  <header
+    class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-purple-600 to-purple-800 text-white px-8 py-4 shadow-md flex items-center justify-between">
+    <h1 class="text-3xl font-bold">Track & Field CLUB</h1>
+    <nav class="flex space-x-8 text-lg">
+      <a href="#" class="hover:text-blue-300">HOME</a>
+      <a href="#" class="hover:text-blue-300">ABOUT US</a>
+      <a href="#" class="hover:text-blue-300">JOIN US</a>
+      <a href="#" class="hover:text-blue-300">NEWS</a>
+      <a href="#" class="hover:text-blue-300">CONTACT</a>
+    </nav>
   </header>
 
+  <!-- キャッチコピー部 -->
+  <section class="bg-cover bg-center h-[70vh] flex items-center justify-center text-white"
+    style="background-image: url('assets\top.jpg');">
+    <div class="text-center drop-shadow-xl">
+      <h2 class="text-4xl font-bold mb-4">キャッチコピー</h2>
+      <p class="text-lg mb-6">キャッチコピー詳細文</p>
+      <a href="#join" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded shadow-md transition">
+        入部案内を見る
+      </a>
+    </div>
+  </section>
 
+  <!-- クラブの特徴・魅力 -->
+  <section class="bg-[#FAF9F6] py-16">
+    <div>
+      <h2 class="text-3xl font-bold text-center mb-10">クラブの特徴・魅力</h2>
+    </div>
+  </section>
 
+  <!-- 最新情報部（上位３件を表示）（NEWSへの誘導） -->
+  <section class="bg-[#FAF9F6] py-16 text-gray-800">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">最新情報</h2>
+
+      <div class="space-y-6">
+        <!-- NEWS項目1 -->
+        <div class="border-b pb-4">
+          <p class="text-sm text-gray-500">2025/06/25</p>
+          <h3 class="text-lg font-semibold">夏季練習のお知らせ</h3>
+          <p class="text-sm text-gray-700">7月からの練習スケジュールが変更になります。詳細をご確認ください。</p>
+        </div>
+
+        <!-- NEWS項目2 -->
+        <div class="border-b pb-4">
+          <p class="text-sm text-gray-500">2025/06/15</p>
+          <h3 class="text-lg font-semibold">大会結果（県大会）</h3>
+          <p class="text-sm text-gray-700">男子リレーで優勝しました！みなさん応援ありがとうございました。</p>
+        </div>
+
+        <!-- NEWS項目3 -->
+        <div class="border-b pb-4">
+          <p class="text-sm text-gray-500">2025/06/10</p>
+          <h3 class="text-lg font-semibold">体験会のお知らせ</h3>
+          <p class="text-sm text-gray-700">6月末に初心者向け体験会を行います。お気軽にご参加ください。</p>
+        </div>
+      </div>
+
+      <!-- 詳細ページへのリンク -->
+      <div class="text-center mt-10">
+        <a class="bg-blue-500 hover:bg-blue-600 rounded py-3 px-6 text-white">ニュース一覧を見る</a>
+      </div>
+      <!-- <div class="mt-8 text-center">
+        <a href="/news" class="text-blue-600 hover:underline text-sm">→ ニュース一覧を見る</a>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- メンバーの声・活動風景 （JOIN USへの誘導）-->
+  <section class="bg-[#FAF9F6] py-16">
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-center mb-10">メンバーの声・活動風景</h2>
+      <a href="#aboutus" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded">ABOUT USへ</a>
+    </div>
+  </section>
+
+  <!-- よくある質問（Q&A) -->
+  <section class="bg-[#FAF9F6] py-16">
+    <div>
+      <h2 class="text-3xl font-bold text-center mb-10">よくある質問</h2>
+    </div>
+  </section>
+
+  <!-- フッター -->
   <footer class="bg-gray-200 text-center py-4 mt-12">
     <p class="text-gray-600">&copy; 2025 Track and field CLUB</p>
   </footer>
