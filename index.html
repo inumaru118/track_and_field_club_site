@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>陸上クラブチーム</title>
   <link href="./dist/style.css" rel="stylesheet" />
+  <script src="src\javascript\getService.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      getNews();
+    });
+  </script>
 </head>
 
 <body class="bg-[#FAF9F6] font-sans leading-normal tracking-normal">
@@ -45,37 +51,11 @@
   <section class="bg-[#FAF9F6] py-16 text-gray-800">
     <div class="max-w-5xl mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-10">最新情報</h2>
-
-      <div class="space-y-6">
-        <!-- NEWS項目1 -->
-        <div class="border-b pb-4">
-          <p class="text-sm text-gray-500">2025/06/25</p>
-          <h3 class="text-lg font-semibold">夏季練習のお知らせ</h3>
-          <p class="text-sm text-gray-700">7月からの練習スケジュールが変更になります。詳細をご確認ください。</p>
-        </div>
-
-        <!-- NEWS項目2 -->
-        <div class="border-b pb-4">
-          <p class="text-sm text-gray-500">2025/06/15</p>
-          <h3 class="text-lg font-semibold">大会結果（県大会）</h3>
-          <p class="text-sm text-gray-700">男子リレーで優勝しました！みなさん応援ありがとうございました。</p>
-        </div>
-
-        <!-- NEWS項目3 -->
-        <div class="border-b pb-4">
-          <p class="text-sm text-gray-500">2025/06/10</p>
-          <h3 class="text-lg font-semibold">体験会のお知らせ</h3>
-          <p class="text-sm text-gray-700">6月末に初心者向け体験会を行います。お気軽にご参加ください。</p>
-        </div>
-      </div>
-
+      <div id="newsList" class="space-y-6"></div>
       <!-- 詳細ページへのリンク -->
       <div class="text-center mt-10">
         <a class="bg-blue-500 hover:bg-blue-600 rounded py-3 px-6 text-white">ニュース一覧を見る</a>
       </div>
-      <!-- <div class="mt-8 text-center">
-        <a href="/news" class="text-blue-600 hover:underline text-sm">→ ニュース一覧を見る</a>
-      </div> -->
     </div>
   </section>
 
@@ -89,8 +69,29 @@
 
   <!-- よくある質問（Q&A) -->
   <section class="bg-[#FAF9F6] py-16">
-    <div>
-      <h2 class="text-3xl font-bold text-center mb-10">よくある質問</h2>
+    <h2 class="text-3xl font-bold mb-10 text-center">よくある質問</h2>
+    <div class="max-w-4xl mx-auto px-4 border-b pb-4 mb-6">
+      <h3 class="text-lg font-semibold">Q1. 陸上初心者でも入部できますか？</h3>
+      <p>A: もちろん！初心者大歓迎です。基礎から丁寧に教えるので安心してくださいね♪</p>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 border-b pb-4 mb-6">
+      <h3 class="text-lg font-semibold">Q2. どんな種目を練習していますか？</h3>
+      <p>A: 短距離・中距離・長距離・ハードル・リレーなど、多彩な種目に対応しています！</p>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 border-b pb-4 mb-6">
+      <h3 class="text-lg font-semibold">Q3. 練習場所と日時は？</h3>
+      <p>A: 毎週火曜・木曜・土曜の夕方から、○○陸上競技場で練習しています。詳細はお問い合わせください。</p>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 border-b pb-4 mb-6">
+      <h3 class="text-lg font-semibold">Q4. 入部にかかる費用は？</h3>
+      <p>A: 入会金○○円、月会費○○円です。ウェアやシューズは各自準備お願いします。</p>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 border-b pb-4 mb-12">
+      <h3 class="text-lg font-semibold">Q5. 体験練習はできますか？</h3>
+      <p>A: はい、随時体験参加OK！気軽にお問い合わせください。</p>
+    </div>
+    <div class="text-center">
+      <a class="bg-blue-500 hover:bg-blue-600 rounded py-3 px-6 text-white">その他のご質問はこちらから</a>
     </div>
   </section>
 
