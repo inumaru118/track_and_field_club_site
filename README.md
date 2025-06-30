@@ -1,2 +1,2 @@
-npm run dev　で変更の監視とViteのローカルサーバーが起動される
-HTMLのクラスにスタイルを記載した際は再起動しないとスタイルが適用されない
+npm run dev�@�ŕύX�̊Ď���Vite�̃��[�J���T�[�o�[���N�������
+HTML�̃N���X�ɃX�^�C�����L�ڂ����ۂ͍ċN�����Ȃ��ƃX�^�C�����K�p����Ȃ�
