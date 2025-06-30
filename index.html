@@ -12,92 +12,147 @@
       getNews();
     });
   </script>
+  <script>
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 780) {
+        header.classList.remove('bg-transparent');
+        header.classList.remove('text-purple-900');
+        header.classList.add('text-white');
+        header.classList.add('bg-purple-400');
+      } else {
+        header.classList.remove('bg-purple-400');
+        header.classList.remove('text-white');
+        header.classList.add('bg-transparent');
+        header.classList.add('text-purple-900');
+      }
+    });
+  </script>
 </head>
 
 <body class="bg-[#FAF9F6] font-sans leading-normal tracking-normal">
   <!-- ヘッダー -->
-  <header
-    class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-purple-600 to-purple-800 text-white px-8 py-4 shadow-md flex items-center justify-between">
+  <header id="header"
+    class="fixed top-0 left-0 w-full z-50 text-purple-900 px-8 py-4 shadow-md flex items-center justify-between transition-colors duration-500 bg-transparent">
     <h1 class="text-3xl font-bold">Track & Field CLUB</h1>
     <nav class="flex space-x-8 text-lg">
       <a href="#" class="hover:text-blue-300">HOME</a>
-      <a href="#" class="hover:text-blue-300">ABOUT US</a>
-      <a href="#" class="hover:text-blue-300">JOIN US</a>
       <a href="#" class="hover:text-blue-300">NEWS</a>
-      <a href="#" class="hover:text-blue-300">CONTACT</a>
+      <a href="src/javascript/html/contact.html" class="hover:text-blue-300">CONTACT</a>
     </nav>
   </header>
 
+  <a href="#contact"
+    class="fixed bottom-6 right-6 bg-blue-500 text-white text-sm px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition">
+    問い合わせはこちら
+  </a>
+
   <!-- キャッチコピー部 -->
-  <section class="bg-cover bg-center h-[70vh] flex items-center justify-center text-white"
-    style="background-image: url('assets\top.jpg');">
-    <div class="text-center drop-shadow-xl">
-      <h2 class="text-4xl font-bold mb-4">キャッチコピー</h2>
-      <p class="text-lg mb-6">キャッチコピー詳細文</p>
-      <a href="#join" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded shadow-md transition">
-        入部案内を見る
-      </a>
+  <section class="relative h-[100vh] flex items-center justify-center text-white">
+    <!-- 背景画像 -->
+    <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('assets/top.jpg');"></div>
+    <!-- 黒いオーバーレイ -->
+    <div class="absolute inset-0 bg-black/20 z-10"></div>
+    <!-- 文字コンテンツ -->
+    <div class="text-center drop-shadow-xl z-20 px-4">
+      <h1 class="text-4xl font-bold mb-12">陸上を、ずっと楽しく。</h2>
+        <p class="text-lg mb-14">
+          陸上競技を通して、人間力を育てる。<br>
+          記録や勝敗だけでなく、挨拶・礼儀・仲間との関わりを大切に。<br>
+          競技を“楽しみながら、長く続けられる”指導をベースに、<br>
+          陸上以外の人生にもつながる「心と体の土台づくり」を目指します。
+        </p>
+        <a href="#join" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded shadow-md transition">
+          入部案内を見る
+        </a>
     </div>
   </section>
 
-  <!-- クラブの特徴・魅力 -->
-  <section class="bg-[#FAF9F6] py-16">
-    <div>
-      <h2 class="text-3xl font-bold text-center mb-10">クラブの特徴・魅力</h2>
+  <!-- コンセプト -->
+  <section class="bg-white py-16 px-4 text-gray-800">
+    <div class="max-w-5xl mx-auto text-center mb-12">
+      <h2
+        class="text-3xl font-bold mb-20 relative inline-block after:block after:w-16 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto">
+        CONCEPT
+      </h2>
+      <p class="text-lg text-gray-800 leading-relaxed">
+        私たちが目指すのは「陸上を通じて人間力を高めること」。<br /><br />
+        ただ記録を伸ばすだけではなく、「挨拶や礼儀」「仲間との関わり」「挑戦を楽しむ心」を大切にしています。<br /><br />
+        楽しく、長く続けられる指導を通じて、陸上の枠を越えた“生きる力”を育てたい。<br /><br />
+        この経験が、将来どんな道に進んでも自信になるように――。<br /><br />
+        心と体、両方の土台を築くサポートをしていきます。
+      </p>
     </div>
   </section>
 
   <!-- 最新情報部（上位３件を表示）（NEWSへの誘導） -->
-  <section class="bg-[#FAF9F6] py-16 text-gray-800">
+  <section class="bg-[#F0EFFB] py-16 text-gray-800">
     <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-10">最新情報</h2>
-      <div id="newsList" class="space-y-6"></div>
+      <h2
+        class="text-3xl font-bold mb-12 relative text-center after:block after:w-16 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto">
+        NEWS</h2>
+      <div id="newsList" class="space-y-6 mb-14"></div>
       <!-- 詳細ページへのリンク -->
-      <div class="text-center mt-10">
+      <div class="text-center">
         <a class="bg-blue-500 hover:bg-blue-600 rounded py-3 px-6 text-white">ニュース一覧を見る</a>
       </div>
     </div>
   </section>
 
-  <!-- メンバーの声・活動風景 （JOIN USへの誘導）-->
-  <section class="bg-[#FAF9F6] py-16">
+  <!-- クラス・料金形態　カード形式で表示-->
+  <section class="bg-[#FDF6F0] py-16">
     <div class="text-center">
-      <h2 class="text-3xl font-bold text-center mb-10">メンバーの声・活動風景</h2>
-      <a href="#aboutus" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded">ABOUT USへ</a>
+      <h2
+        class="text-3xl font-bold mb-14 relative inline-block after:block after:w-16 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto">
+        CLASSES & FEES</h2>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-14">
+        <div class="bg-gray-100 rounded-xl p-6 shadow hover:shadow-lg transition">
+          <div class="text-4xl mb-5">ジュニアハイクラス</div>
+          <h3 class="text-xl font-bold mb-4">小学6年生～中学3年生向け</h3>
+          <p class="text-gray-600 mb-8">姿勢や身体操作、専門種目の選定を行います。</p>
+          <p class="text-2xl">¥5,000/月</p>
+        </div>
+        <div class="bg-gray-100 rounded-xl p-6 shadow hover:shadow-lg transition">
+          <div class="text-4xl mb-5">ハイクラス</div>
+          <h3 class="text-xl font-bold mb-4">中学3年生～高校3年生向け</h3>
+          <p class="text-gray-600 mb-8">出力向上、専門技術の習得等を行います。</p>
+          <p class="text-2xl">¥5,000/月</p>
+        </div>
+        <div class="bg-gray-100 rounded-xl p-6 shadow hover:shadow-lg transition">
+          <div class="text-4xl mb-5">パーソナルレッスン</div>
+          <h3 class="text-xl font-bold mb-4">クラブ在籍者のみ</h3>
+          <p class="text-gray-600 mb-8">マンツーマンレッスンで技術向上を目指します。</p>
+          <p class="text-2xl">¥2,000/90分</p>
+        </div>
+      </div>
+      <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded">料金問い合わせ</a>
     </div>
   </section>
 
-  <!-- よくある質問（Q&A) -->
-  <section class="bg-[#FAF9F6] py-16">
-    <h2 class="text-3xl font-bold mb-10 text-center">よくある質問</h2>
-    <div class="max-w-4xl mx-auto px-4 border-b pb-4 mb-6">
-      <h3 class="text-lg font-semibold">Q1. 陸上初心者でも入部できますか？</h3>
-      <p>A: もちろん！初心者大歓迎です。基礎から丁寧に教えるので安心してくださいね♪</p>
-    </div>
-    <div class="max-w-4xl mx-auto px-4 border-b pb-4 mb-6">
-      <h3 class="text-lg font-semibold">Q2. どんな種目を練習していますか？</h3>
-      <p>A: 短距離・中距離・長距離・ハードル・リレーなど、多彩な種目に対応しています！</p>
-    </div>
-    <div class="max-w-4xl mx-auto px-4 border-b pb-4 mb-6">
-      <h3 class="text-lg font-semibold">Q3. 練習場所と日時は？</h3>
-      <p>A: 毎週火曜・木曜・土曜の夕方から、○○陸上競技場で練習しています。詳細はお問い合わせください。</p>
-    </div>
-    <div class="max-w-4xl mx-auto px-4 border-b pb-4 mb-6">
-      <h3 class="text-lg font-semibold">Q4. 入部にかかる費用は？</h3>
-      <p>A: 入会金○○円、月会費○○円です。ウェアやシューズは各自準備お願いします。</p>
-    </div>
-    <div class="max-w-4xl mx-auto px-4 border-b pb-4 mb-12">
-      <h3 class="text-lg font-semibold">Q5. 体験練習はできますか？</h3>
-      <p>A: はい、随時体験参加OK！気軽にお問い合わせください。</p>
-    </div>
+
+  <section class="bg-[#F2F4F6] py-16">
     <div class="text-center">
-      <a class="bg-blue-500 hover:bg-blue-600 rounded py-3 px-6 text-white">その他のご質問はこちらから</a>
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2
+          class="text-3xl font-bold mb-14 relative inline-block after:block after:w-16 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto">
+          COACH</h2>
+        <div class="bg-purple-50 p-8 rounded-xl shadow-md">
+          <img src="/assets/top.jpg" alt="コーチ写真" class="rounded-full w-40 h-40 mx-auto mb-6 object-cover">
+          <h3 class="text-2xl font-semibold mb-2">佐藤 勇人（さとう はやと）</h3>
+          <p class="text-base text-purple-600 mb-4">代表コーチ｜JSPO公認陸上競技コーチ1／栄養士</p>
+          <p class="text-base leading-relaxed text-gray-700">
+            楽しく走ることが上達の近道！<br />
+            陸上を通して“自信”を育てます。
+          </p>
+        </div>
+      </div>
+      <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded">他のコーチを見る</a>
     </div>
   </section>
 
   <!-- フッター -->
-  <footer class="bg-gray-200 text-center py-4 mt-12">
-    <p class="text-gray-600">&copy; 2025 Track and field CLUB</p>
+  <footer class="bg-purple-400 text-white text-center py-4 mt-12">
+    <p>&copy; 2025 Track and field CLUB</p>
   </footer>
 </body>
 

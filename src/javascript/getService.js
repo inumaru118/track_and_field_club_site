@@ -1,5 +1,5 @@
 // GASのAPI
-const API_URL = "https://script.google.com/macros/s/AKfycbzeI8IvBSlaHAUTTOi87C876NJz0rlGu6Abxf9hCi2EAdmfFQy_G9QWBoy3YtNpWily/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbycSDlgor2CoyzSlq2dM-9Z-48uZ48DlPTyRL2iasWtPhewrJ0c3EsGsEEv-UDZIGTd/exec";
 
 /**
  * GASでスプレッドシートからお知らせデータを取得する
@@ -8,9 +8,7 @@ const getNews = () => {
     fetch(API_URL)
         // レスポンスをJSONで扱えるように変換
         .then(response => response.json())
-        .then(data => {
-            // １行目はヘッダーのため削除
-            const res = data.slice(1);
+        .then(res => {
             // オブジェクトを整形
             const formatedNews = res.map(data => {
                 return {
@@ -23,6 +21,7 @@ const getNews = () => {
             });
             // HTMLからIDが該当するDOMを取得
             const newsListElement = document.getElementById("newsList");
+            newsListElement.innerHTML = '';
             // 取得したお知らせの数、繰り返し処理
             formatedNews.forEach(news => {
                 // divの新たなDOMを作成
