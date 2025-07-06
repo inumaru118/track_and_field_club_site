@@ -33,26 +33,24 @@
     window.addEventListener('scroll', () => {
       const header = document.getElementById('header');
       const menu = document.getElementById('nav-menu');
-      if (window.scrollY > 780) {
+      const imgHeight = document.getElementById('topImg').offsetHeight;
+      const headerHeight = header.offsetHeight;
+
+      if (window.scrollY > (imgHeight-headerHeight)) {
         header.classList.remove('bg-transparent');
-        header.classList.remove('text-purple-900');
-        header.classList.add('text-white');
         header.classList.add('bg-purple-400');
       } else {
         header.classList.remove('bg-purple-400');
-        header.classList.remove('text-white');
         header.classList.add('bg-transparent');
-        header.classList.add('text-purple-900');
       }
     });
   </script>
 
 </head>
-
 <body class="bg-[#FAF9F6] font-sans leading-normal tracking-normal">
   <!-- ヘッダー -->
   <header id="header"
-    class="fixed top-0 left-0 w-full z-50 text-purple-900 px-8 py-4 shadow-md flex items-center justify-between transition-colors duration-500 bg-transparent">
+    class="fixed top-0 left-0 w-full z-50 font-bold text-white px-8 py-4 shadow-md flex items-center justify-between transition-colors duration-500 bg-transparent">
     <h1 class="text-3xl font-bold">Track & Field CLUB</h1>
     <button id="menu-btn" class="md:hidden text-3xl focus:outline-none">&#9776;</button>
     <nav id="nav-menu" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out 
@@ -74,7 +72,7 @@
   <!-- キャッチコピー部 -->
   <section class="relative h-[100vh] flex items-center justify-center text-white">
     <!-- 背景画像 -->
-    <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('assets/top.jpg');"></div>
+    <div id="topImg" class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('/assets/陸上素材2.jpg');"></div>
     <!-- 黒いオーバーレイ -->
     <div class="absolute inset-0 bg-black/20 z-10"></div>
     <!-- 文字コンテンツ -->
@@ -93,27 +91,27 @@
   </section>
 
   <!-- コンセプト -->
-  <section class="bg-white py-16 px-4 text-gray-800">
-    <div class="max-w-5xl mx-auto text-center mb-12">
-      <h2
-        class="text-3xl font-bold mb-20 relative inline-block after:block after:w-16 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto">
-        CONCEPT
-      </h2>
-      <p class="text-lg text-gray-800 leading-relaxed">
-        私たちが目指すのは「陸上を通じて人間力を高めること」。<br /><br />
-        ただ記録を伸ばすだけではなく、「挨拶や礼儀」　「仲間との関わり」　「挑戦を楽しむ心」を大切にしています。<br /><br />
-        楽しく、長く続けられる指導を通じて、陸上の枠を越えた<span class="font-bold">“生きる力”</span>を育てたい。<br /><br />
-        この経験が、将来どんな道に進んでも自信になるように――。<br /><br />
-        心と体、両方の土台を築くサポートをしていきます。
-      </p>
-    </div>
-  </section>
+  <section class="bg-white py-24 px-4 text-gray-800">
+  <div class="max-w-5xl mx-auto text-center mb-20">
+    <h2
+      class="text-4xl font-extrabold mb-12 relative inline-block after:block after:w-20 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto tracking-widest">
+      CONCEPT
+    </h2>
+    <p class="text-xl text-gray-700 leading-relaxed space-y-4">
+      <span class="block">私たちが目指すのは「<span class="font-semibold">陸上を通じて人間力を高めること</span>」。</span>
+      <span class="block">ただ記録を伸ばすだけではなく、「<span class="font-semibold">挨拶や礼儀</span>」「<span class="font-semibold">仲間との関わり</span>」「<span class="font-semibold">挑戦を楽しむ心</span>」を大切にしています。</span>
+      <span class="block">楽しく、長く続けられる指導を通じて、陸上の枠を越えた<span class="font-bold text-purple-600">“生きる力”</span>を育てたい。</span>
+      <span class="block">この経験が、将来どんな道に進んでも自信になるように――。</span>
+      <span class="block">心と体、両方の土台を築くサポートをしていきます。</span>
+    </p>
+  </div>
+</section>
 
   <!-- 最新情報部（上位３件を表示）（NEWSへの誘導） -->
   <section class="bg-[#F0EFFB] py-16 text-gray-800">
     <div class="max-w-5xl mx-auto px-4">
       <h2
-        class="text-3xl font-bold mb-12 relative text-center after:block after:w-16 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto">
+        class="text-center text-4xl font-extrabold mb-12 relative block after:block after:w-20 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto tracking-widest">
         NEWS</h2>
       <div id="newsList" class="space-y-6 mb-14"></div>
       <!-- 詳細ページへのリンク -->
@@ -127,7 +125,7 @@
   <section class="bg-[#FDF6F0] py-16">
     <div class="text-center">
       <h2
-        class="text-3xl font-bold mb-14 relative inline-block after:block after:w-16 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto">
+        class="text-4xl font-extrabold mb-12 relative inline-block after:block after:w-20 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto tracking-widest">
         CLASSES & FEES</h2>
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-14">
         <div class="bg-gray-100 rounded-xl p-6 shadow hover:shadow-lg transition">
@@ -153,17 +151,16 @@
     </div>
   </section>
 
-
   <section class="bg-[#F2F4F6] py-16">
     <div class="text-center">
       <div class="max-w-3xl mx-auto text-center mb-16">
         <h2
-          class="text-3xl font-bold mb-14 relative inline-block after:block after:w-16 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto">
+          class="text-4xl font-extrabold mb-12 relative inline-block after:block after:w-20 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto tracking-widest">
           COACH</h2>
         <div class="bg-purple-50 p-8 rounded-xl shadow-md">
           <img src="./assets/top.jpg" alt="コーチ写真" class="rounded-full w-40 h-40 mx-auto mb-6 object-cover">
-          <h3 class="text-2xl font-semibold mb-2">佐藤 勇人（さとう はやと）</h3>
-          <p class="text-base text-purple-600 mb-4">代表コーチ｜JSPO公認陸上競技コーチ1／栄養士</p>
+          <h3 class="text-2xl font-semibold mb-2">佐藤 勇人（さとう ゆうと）</h3>
+          <p class="text-base text-purple-600 mb-4">代表コーチ｜JSPO公認陸上競技コーチ1／管理栄養士</p>
           <p class="text-base leading-relaxed text-gray-700">
             楽しく走ることが上達の近道！<br />
             陸上を通して“自信”を育てます。
@@ -174,8 +171,29 @@
     </div>
   </section>
 
+  <section class="bg-[#F0EFFB] py-16">
+    <div class="text-center">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2
+          class="text-4xl font-extrabold mb-12 relative inline-block after:block after:w-20 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto tracking-widest">
+          ACTIVITY INFO
+        </h2>
+      </div>
+      <dl class="max-w-2xl mx-auto p-4 pb-12 pt-0 text-left">
+        <div class="grid grid-cols-[auto_1fr] gap-x-12 py-4 border-b border-gray-300">
+          <dt class="text-right font-medium">活動時間</dt>
+          <dd>毎週土曜・日曜日　9:00～12:00</dd>
+        </div>
+        <div class="grid grid-cols-[auto_1fr] gap-x-12 py-4 border-b border-gray-300">
+          <dt class="text-right font-medium">活動場所</dt>
+          <dd>近隣陸上競技場</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
   <!-- フッター -->
-  <footer class="bg-purple-400 text-white text-center py-4 mt-12">
+  <footer class="bg-purple-400 text-white text-center py-4">
     <p>&copy; 2025 Track and field CLUB</p>
   </footer>
 </body>
