@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RINDOUおおさきAthleteClub</title>
+    <title>お問い合わせ | RINDOUおおさきAthleteClub</title>
     <link href="../../dist/style.css" rel="stylesheet" />
     <script>
         window.addEventListener('DOMContentLoaded', () => {
@@ -39,7 +39,7 @@
          bg-black/50 md:bg-transparent text-center md:text-left
          shadow-md md:shadow-none py-0 md:py-0 z-40 items-center md:max-h-none">
             <a href="../../index.html" class="block md:inline-block px-6 py-2 hover:text-blue-300">HOME</a>
-            <a href="#" class="block md:inline-block px-6 py-2 hover:text-blue-300">NEWS</a>
+            <a href="./news.html" class="block md:inline-block px-6 py-2 hover:text-blue-300">NEWS</a>
             <a href="./contact.html" class="block md:inline-block px-6 py-2 hover:text-blue-300">CONTACT</a>
         </nav>
     </header>
@@ -72,8 +72,21 @@
         iframe.style.height = iframeHeight + 'px'
     }
 
+    const calcNavHeight = () => {
+        // DOM情報取得
+        const header = document.getElementById('header');
+        const nav = document.getElementById('nav-menu');
+
+        // 高さ計算
+        const headerHeight = header.offsetHeight;
+
+        nav.style.top = `${headerHeight}px`;
+    }
+
     window.addEventListener('load', calcIframeHeight);
     window.addEventListener('resize', calcIframeHeight);
+    window.addEventListener('load', calcNavHeight);
+    window.addEventListener('resize', calcNavHeight);
 </script>
 
 </html>

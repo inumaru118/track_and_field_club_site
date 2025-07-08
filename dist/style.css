@@ -576,10 +576,6 @@ video {
   top: 0px;
 }
 
-.top-\[70px\] {
-  top: 70px;
-}
-
 .z-0 {
   z-index: 0;
 }
@@ -731,6 +727,10 @@ video {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.resize {
+  resize: both;
 }
 
 .grid-cols-\[auto_1fr\] {

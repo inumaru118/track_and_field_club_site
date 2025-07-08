@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RINDOUおおさきAthleteClub</title>
+  <title>ホーム | RINDOUおおさきAthleteClub</title>
   <link href="./dist/style.css" rel="stylesheet" />
   <link rel="icon" type="image/png" href="./assets/top.jpg" />
   <script src="./src/javascript/getService.js"></script>
@@ -12,7 +12,7 @@
     // 画面読み込み完了時イベント
     document.addEventListener("DOMContentLoaded", () => {
       // 最新情報取得
-      getNews();
+      getNews(3, true);
 
       // DOM取得
       const menuBtn = document.getElementById('menu-btn');
@@ -37,7 +37,7 @@
       const imgHeight = document.getElementById('topImg').offsetHeight;
       const headerHeight = header.offsetHeight;
 
-      if (window.scrollY > (imgHeight-headerHeight)) {
+      if (window.scrollY > (imgHeight - headerHeight)) {
         header.classList.remove('bg-transparent');
         header.classList.add('bg-purple-400');
       } else {
@@ -48,6 +48,7 @@
   </script>
 
 </head>
+
 <body class="bg-[#FAF9F6] font-sans leading-normal tracking-normal">
   <!-- ヘッダー -->
   <header id="header"
@@ -56,11 +57,11 @@
     <button id="menu-btn" class="md:hidden text-3xl focus:outline-none">&#9776;</button>
     <nav id="nav-menu" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out 
          flex flex-col md:flex-row md:items-center md:justify-start
-         text-lg absolute md:static top-[70px] left-0 w-full md:w-auto
+         text-lg absolute md:static left-0 w-full md:w-auto
          bg-black/50  md:bg-transparent text-center md:text-left
          shadow-md md:shadow-none py-0 md:py-0 z-40 items-center md:max-h-none">
       <a href="./index.html" class="block md:inline-block px-6 py-2 hover:text-blue-300">HOME</a>
-      <a href="#" class="block md:inline-block px-6 py-2 hover:text-blue-300">NEWS</a>
+      <a href="./src/html/news.html" class="block md:inline-block px-6 py-2 hover:text-blue-300">NEWS</a>
       <a href="./src/html/contact.html" class="block md:inline-block px-6 py-2 hover:text-blue-300">CONTACT</a>
     </nav>
   </header>
@@ -73,7 +74,8 @@
   <!-- キャッチコピー部 -->
   <section class="relative h-[100vh] flex items-center justify-center text-white">
     <!-- 背景画像 -->
-    <div id="topImg" class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('./assets/material2.jpg');"></div>
+    <div id="topImg" class="absolute inset-0 bg-cover bg-center z-0"
+      style="background-image: url('./assets/material2.jpg');"></div>
     <!-- 黒いオーバーレイ -->
     <div class="absolute inset-0 bg-black/20 z-10"></div>
     <!-- 文字コンテンツ -->
@@ -93,20 +95,21 @@
 
   <!-- コンセプト -->
   <section class="bg-white py-24 px-4 text-gray-800">
-  <div class="max-w-5xl mx-auto text-center mb-20">
-    <h2
-      class="text-4xl font-extrabold mb-12 relative inline-block after:block after:w-20 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto tracking-widest">
-      CONCEPT
-    </h2>
-    <p class="text-xl text-gray-700 leading-relaxed space-y-4">
-      <span class="block">私たちが目指すのは「<span class="font-semibold">陸上を通じて人間力を高めること</span>」。</span>
-      <span class="block">ただ記録を伸ばすだけではなく、「<span class="font-semibold">挨拶や礼儀</span>」「<span class="font-semibold">仲間との関わり</span>」「<span class="font-semibold">挑戦を楽しむ心</span>」を大切にしています。</span>
-      <span class="block">楽しく、長く続けられる指導を通じて、陸上の枠を越えた<span class="font-bold text-purple-600">“生きる力”</span>を育てたい。</span>
-      <span class="block">この経験が、将来どんな道に進んでも自信になるように――。</span>
-      <span class="block">心と体、両方の土台を築くサポートをしていきます。</span>
-    </p>
-  </div>
-</section>
+    <div class="max-w-5xl mx-auto text-center mb-20">
+      <h2
+        class="text-4xl font-extrabold mb-12 relative inline-block after:block after:w-20 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto tracking-widest">
+        CONCEPT
+      </h2>
+      <p class="text-xl text-gray-700 leading-relaxed space-y-4">
+        <span class="block">私たちが目指すのは「<span class="font-semibold">陸上を通じて人間力を高めること</span>」。</span>
+        <span class="block">ただ記録を伸ばすだけではなく、「<span class="font-semibold">挨拶や礼儀</span>」「<span
+            class="font-semibold">仲間との関わり</span>」「<span class="font-semibold">挑戦を楽しむ心</span>」を大切にしています。</span>
+        <span class="block">楽しく、長く続けられる指導を通じて、陸上の枠を越えた<span class="font-bold text-purple-600">“生きる力”</span>を育てたい。</span>
+        <span class="block">この経験が、将来どんな道に進んでも自信になるように――。</span>
+        <span class="block">心と体、両方の土台を築くサポートをしていきます。</span>
+      </p>
+    </div>
+  </section>
 
   <!-- 最新情報部（上位３件を表示）（NEWSへの誘導） -->
   <section class="bg-[#F0EFFB] py-16 text-gray-800">
@@ -117,7 +120,8 @@
       <div id="newsList" class="space-y-6 mb-14"></div>
       <!-- 詳細ページへのリンク -->
       <div class="text-center">
-        <a class="bg-blue-500 hover:bg-blue-600 rounded py-3 px-6 text-white">ニュース一覧を見る ➔</a>
+        <a href="./src/html/news.html" class="bg-blue-500 hover:bg-blue-600 rounded py-3 px-6 text-white">ニュース一覧を見る
+          ➔</a>
       </div>
     </div>
   </section>
@@ -198,5 +202,20 @@
     <p>&copy; 2025 RINDOU Osaki Athlete Club</p>
   </footer>
 </body>
+<script>
+  const calcNavHeight = () => {
+    // DOM情報取得
+    const header = document.getElementById('header');
+    const nav = document.getElementById('nav-menu');
+
+    // 高さ計算
+    const headerHeight = header.offsetHeight;
+
+    nav.style.top = `${headerHeight}px`;
+  }
+
+  window.addEventListener('load', calcNavHeight);
+  window.addEventListener('resize', calcNavHeight);
+</script>
 
 </html>
