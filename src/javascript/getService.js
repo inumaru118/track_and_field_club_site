@@ -1,11 +1,11 @@
 // GASのAPI
-const API_URL = "https://script.google.com/macros/s/AKfycbycSDlgor2CoyzSlq2dM-9Z-48uZ48DlPTyRL2iasWtPhewrJ0c3EsGsEEv-UDZIGTd/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbzDcB51wt6fIOAcltW9hwy3ZBbM_IWFyoi0FNkWpsdoKebgJ9OXQN1iEBMhwc2w_Fu_/exec";
 
 /**
  * GASでスプレッドシートからお知らせデータを取得する
  */
-const getNews = () => {
-    fetch(API_URL)
+const getNews = (resultCount, isHome) => {
+    fetch(`${API_URL}?resultCount=${resultCount}`)
         // レスポンスをJSONで扱えるように変換
         .then(response => response.json())
         .then(res => {
@@ -29,11 +29,20 @@ const getNews = () => {
                 // クラス名にTailwindCSSのユーティリティクラスを付与
                 newsItemDiv.className = "border-b pb-4";
                 // DOMにHTMLを挿入
-                newsItemDiv.innerHTML = `
+                if (isHome) {
+                    newsItemDiv.innerHTML = `
                     <p class="text-sm text-gray-500">${news.created_at}</p>
-                    <a href="##" class="hover:underline cursor-pointer"><h3 class="text-lg font-semibold">${news.title}</h3></a>
+                    <a href="./src/html/news-detail.html" class="hover:underline cursor-pointer"><h3 class="text-lg font-semibold">${news.title}</h3></a>
                     <p class="text-sm text-gray-700">${news.short_message}</p>
                 `;
+                } else {
+                    newsItemDiv.innerHTML = `
+                    <p class="text-sm text-gray-500">${news.created_at}</p>
+                    <a href="./news-detail.html" class="hover:underline cursor-pointer"><h3 class="text-lg font-semibold">${news.title}</h3></a>
+                    <p class="text-sm text-gray-700">${news.short_message}</p>
+                `;
+                }
+
                 // 親の要素にdivタグを追加
                 newsListElement.appendChild(newsItemDiv);
             })
