@@ -697,6 +697,38 @@ video {
   max-width: 72rem;
 }
 
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up-samary {
+  animation: fade-in-up 2s ease-out forwards;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up-title {
+  animation: fade-in-up 1s ease-out forwards;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
