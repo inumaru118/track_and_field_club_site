@@ -37,13 +37,13 @@
             // ヘッダーの高さ分だけ余白を追加
             const header = document.getElementById('header');
             const spacer = document.getElementById('header-spacer');
-            spacer.style.height = header.offsetHeight + 'px';
+            spacer.style.height = header.offsetHeight + 32 + 'px';
         });
         window.addEventListener('resize', () => {
             // ウィンドウリサイズ時も余白を再計算
             const header = document.getElementById('header');
             const spacer = document.getElementById('header-spacer');
-            spacer.style.height = header.offsetHeight + 'px';
+            spacer.style.height = header.offsetHeight + 32 + 'px';
         });
     </script>
 </head>
