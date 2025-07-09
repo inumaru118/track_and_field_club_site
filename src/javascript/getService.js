@@ -4,8 +4,8 @@ const API_URL = "https://script.google.com/macros/s/AKfycbzDcB51wt6fIOAcltW9hwy3
 /**
  * GASでスプレッドシートからお知らせデータを取得する
  */
-const getNews = (resultCount, isHome) => {
-    fetch(`${API_URL}?resultCount=${resultCount}`)
+const getNews = async (resultCount, isHome) => {
+    await fetch(`${API_URL}?resultCount=${resultCount}`)
         // レスポンスをJSONで扱えるように変換
         .then(response => response.json())
         .then(res => {
@@ -32,16 +32,23 @@ const getNews = (resultCount, isHome) => {
                 if (isHome) {
                     newsItemDiv.innerHTML = `
                     <p class="text-sm text-gray-500">${news.created_at}</p>
-                    <a href="./src/html/news-detail.html" class="hover:underline cursor-pointer"><h3 class="text-lg font-semibold">${news.title}</h3></a>
+                    <a href="./src/html/news-detail.html" class="hover:underline cursor-pointer news-link"><h3 class="text-lg font-semibold">${news.title}</h3></a>
                     <p class="text-sm text-gray-700">${news.short_message}</p>
                 `;
                 } else {
                     newsItemDiv.innerHTML = `
                     <p class="text-sm text-gray-500">${news.created_at}</p>
-                    <a href="./news-detail.html" class="hover:underline cursor-pointer"><h3 class="text-lg font-semibold">${news.title}</h3></a>
+                    <a href="./news-detail.html" class="hover:underline cursor-pointer news-link"><h3 class="text-lg font-semibold">${news.title}</h3></a>
                     <p class="text-sm text-gray-700">${news.short_message}</p>
                 `;
                 }
+
+                const link = newsItemDiv.querySelector("a.news-link");
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    sessionStorage.setItem("newsDetail", JSON.stringify(news));
+                    location.href = link.href;
+                });
 
                 // 親の要素にdivタグを追加
                 newsListElement.appendChild(newsItemDiv);

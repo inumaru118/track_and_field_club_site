@@ -9,10 +9,19 @@
   <link rel="icon" type="image/png" href="./assets/top.jpg" />
   <script src="./src/javascript/getService.js"></script>
   <script>
+    function showLoader() {
+      document.getElementById('loader').classList.remove('hidden');
+    }
+    function hideLoader() {
+      document.getElementById('loader').classList.add('hidden');
+    }
+
     // 画面読み込み完了時イベント
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", async () => {
       // 最新情報取得
-      getNews(3, true);
+      showLoader();
+      await getNews(3, true);
+      hideLoader();
 
       // DOM取得
       const menuBtn = document.getElementById('menu-btn');
@@ -117,7 +126,16 @@
       <h2
         class="text-center text-4xl font-extrabold mb-12 relative block after:block after:w-20 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto tracking-widest">
         NEWS</h2>
-      <div id="newsList" class="space-y-6 mb-14"></div>
+      <!-- 🔽 newsListとloaderをラップ -->
+      <div class="relative min-h-[250px]">
+        <!-- ローダー（上に重ねて中央表示） -->
+        <div id="loader" class="absolute inset-0 bg-transparent flex items-center justify-center z-10 hidden">
+          <div class="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+
+        <!-- ニュースリスト -->
+        <div id="newsList" class="space-y-6 mb-14 relative z-0"></div>
+      </div>
       <!-- 詳細ページへのリンク -->
       <div class="text-center">
         <a href="./src/html/news.html" class="bg-blue-500 hover:bg-blue-600 rounded py-3 px-6 text-white">ニュース一覧を見る
