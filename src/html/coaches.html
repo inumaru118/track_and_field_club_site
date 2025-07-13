@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>コーチ紹介 | RINDOUおおさきAthleteClub</title>
+    <link href="../../dist/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="../../assets/top.jpg" />
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const navMenu = document.getElementById('nav-menu');
+            menuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('max-h-0');
+                navMenu.classList.toggle('max-h-96');
+            });
+
+            const header = document.getElementById('header');
+            const spacer = document.getElementById('header-spacer');
+            spacer.style.height = header.offsetHeight + 32 + 'px';
+        });
+
+        window.addEventListener('resize', () => {
+            const header = document.getElementById('header');
+            const spacer = document.getElementById('header-spacer');
+            spacer.style.height = header.offsetHeight + 32 + 'px';
+        });
+    </script>
+</head>
+
+<body class="bg-[#FAF9F6] font-sans leading-normal tracking-normal">
+    <!-- ヘッダー -->
+    <header id="header"
+        class="fixed top-0 left-0 w-full z-50 font-bold text-white px-8 py-4 shadow-md flex items-center justify-between transition-colors duration-500 bg-purple-400">
+        <h1 class="text-3xl font-bold">RINDOU Osaki Athlete Club</h1>
+        <button id="menu-btn" class="md:hidden text-3xl focus:outline-none">&#9776;</button>
+        <nav id="nav-menu"
+            class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out flex flex-col md:flex-row md:items-center md:justify-start text-lg absolute md:static top-[70px] left-0 w-full md:w-auto bg-black/50 md:bg-transparent text-center md:text-left shadow-md md:shadow-none py-0 md:py-0 z-40 items-center md:max-h-none">
+            <a href="../../index.html" class="block md:inline-block px-6 py-2 hover:text-blue-300">HOME</a>
+            <a href="./news.html" class="block md:inline-block px-6 py-2 hover:text-blue-300">NEWS</a>
+            <a href="./contact.html" class="block md:inline-block px-6 py-2 hover:text-blue-300">CONTACT</a>
+        </nav>
+    </header>
+
+    <!-- ヘッダー分の余白 -->
+    <div id="header-spacer"></div>
+
+    <!-- メイン -->
+    <main class="max-w-3xl mx-auto">
+        <section class=" py-16 px-4">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2
+                    class="text-center text-4xl font-extrabold relative block after:block after:w-20 after:h-1 after:bg-purple-600 after:mt-2 after:mx-auto tracking-widest mb-12">
+                    COACHES</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- コーチ1 -->
+                    <div class="bg-gray-100 rounded-xl shadow p-6 transition hover:shadow-lg">
+                        <img src="../../assets/top.jpg" alt="コーチ写真"
+                            class="rounded-full w-40 h-40 mx-auto mb-6 object-cover">
+                        <div class="flex items-center gap-4 justify-between mb-4">
+                            <div class="text-left flex-1 min-w-0">
+                                <h3 class="text-xl font-bold">佐藤勇人（さとう ゆうと）</h3>
+                                <p class="text-purple-600">代表コーチ｜JSPO公認陸上競技コーチ1／管理栄養士</p>
+                            </div>
+                            <button class="text-2xl transition-transform" onclick="toggleDetail(this)">▼</button>
+                        </div>
+                        <div
+                            class="coach-detail max-h-0 overflow-hidden transition-all duration-500 ease-in-out mt-4 text-left text-gray-700">
+                            <div class="mb-4">
+                                <h4 class="font-semibold text-purple-500 mb-1">【競技歴】</h4>
+                                <p>
+                                    ・陸上歴14年。中学〜高校でジャンプ種目に取り組む<br>
+                                    ・2015年 全国中学校陸上競技大会リレー 9位入賞<br>
+                                    ・同年 宮城県中学男子走幅跳 第3位<br>
+                                    ・高校では三段跳を専門にし、東北大会へ出場
+                                </p>
+                            </div>
+
+                            <!-- 指導歴 -->
+                            <div>
+                                <h4 class="font-semibold text-purple-500 mb-1">【指導歴】</h4>
+                                <p>
+                                    ・2023〜2025年：名取市内の中学校2校で外部コーチとして活動<br>
+                                    ・2024年〜：宮城県中学陸上競技強化事業 走幅跳支援コーチ<br>
+                                    ・2025年〜：古川中学校 外部コーチとして指導開始予定
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 rounded-xl shadow p-6 transition hover:shadow-lg">
+                        <img src="../../assets/top.jpg" alt="コーチ写真"
+                            class="rounded-full w-40 h-40 mx-auto mb-6 object-cover">
+                        <div class="flex items-center gap-4 justify-between mb-4">
+                            <div class="text-left flex-1 min-w-0">
+                                <h3 class="text-xl font-bold">佐藤勇人（さとう ゆうと）</h3>
+                                <p class="text-purple-600">代表コーチ｜JSPO公認陸上競技コーチ1／管理栄養士</p>
+                            </div>
+                            <button class="text-2xl transition-transform" onclick="toggleDetail(this)">▼</button>
+                        </div>
+                        <div
+                            class="coach-detail max-h-0 overflow-hidden transition-all duration-500 ease-in-out mt-4 text-left text-gray-700">
+                            <div class="mb-4">
+                                <h4 class="font-semibold text-purple-500 mb-1">【競技歴】</h4>
+                                <p>
+                                    ・陸上歴14年。中学〜高校でジャンプ種目に取り組む<br>
+                                    ・2015年 全国中学校陸上競技大会リレー 9位入賞<br>
+                                    ・同年 宮城県中学男子走幅跳 第3位<br>
+                                    ・高校では三段跳を専門にし、東北大会へ出場
+                                </p>
+                            </div>
+
+                            <!-- 指導歴 -->
+                            <div>
+                                <h4 class="font-semibold text-purple-500 mb-1">【指導歴】</h4>
+                                <p>
+                                    ・2023〜2025年：名取市内の中学校2校で外部コーチとして活動<br>
+                                    ・2024年〜：宮城県中学陸上競技強化事業 走幅跳支援コーチ<br>
+                                    ・2025年〜：古川中学校 外部コーチとして指導開始予定
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-purple-400 text-white text-center py-4">
+        <p>&copy; 2025 RINDOU Osaki Athlete Club</p>
+    </footer>
+
+    <script>
+        const calcNavHeight = () => {
+            const header = document.getElementById('header');
+            const nav = document.getElementById('nav-menu');
+            nav.style.top = `${header.offsetHeight}px`;
+        }
+
+        window.addEventListener('load', calcNavHeight);
+        window.addEventListener('resize', calcNavHeight);
+
+        function toggleDetail(button) {
+            const detail = button.parentElement.nextElementSibling;
+            const isOpen = detail.classList.contains('max-h-0');
+            detail.classList.toggle('max-h-0');
+            detail.classList.toggle('max-h-96');
+            button.classList.toggle('rotate-180');
+        }
+    </script>
+</body>
+
+</html>
