@@ -14,11 +14,11 @@
             if (newsDetail) {
                 document.getElementById("news-title").textContent = newsDetail.title;
                 document.getElementById("news-date").textContent = newsDetail.created_at;
-                document.getElementById("news-message").textContent = newsDetail.message;
+                document.getElementById("news-message").innerHTML = newsDetail.message;
             } else {
                 document.getElementById("news-title").textContent = "データがありません";
                 document.getElementById("news-date").textContent = "";
-                document.getElementById("news-message").textContent = "";
+                document.getElementById("news-message").innerHTML = "";
             }
 
             // メニュー開閉
